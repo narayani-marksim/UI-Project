@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/signin.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</head>
+<script>
+    function validateform() {
+
+        var username = document.myform.username.value;
+        var userpassword = document.myform.userpassword.value;
+        var useremail = document.myform.useremail.value;
+
+        var atposition = useremail.indexOf("@");
+        var dotposition = useremail.lastIndexOf(".");
+
+        if (username == null || username == "") {
+            alert("Please enter the username");
+            return false;
+        }
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= useremail.length) {
+            alert("Please enter a e-mail address ");
+            return false;
+        } else if (userpassword.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return false;
+        }
+
+    }
+</script>
+
+<body>
+    <div class="signup">
+        <div class="container">
+            <div class="image">
+                <div class="row no-gutter">
+                    <div class="col-lg-6">
+                        <img class="firstimg" src="../assets/Group 232.png" width="470px" height="500px">
+                        <div class="title1">Our Philosophy</div>
+                        <div class="title2">Attention. Always.</div>
+                        <img class="title3" src="../assets/Image 56.png" width="130px">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="image2">
+                            <div class="userregistration">
+                                <div class="title4">Hello!</div>
+                                <div class="title5">Employee Portal Sign Up</div>
+                                <form class="regform" name="myform" method="post" action="signinsuccess.html" onsubmit="return validateform()">
+                                    <div>
+                                        <label class="user">Username </label>
+                                        <input type="text" name="username" placeholder="Ramesh" required>
+                                    </div>
+                                    <div>
+                                        <label class="user">Email</label>
+                                        <input type="email" name="useremail" placeholder="Ramesh.kanniyappan@aspiresys.com" required>
+                                    </div>
+                                    <div>
+                                        <label for="psw">Password</label>
+                                        <input type="password" id="psw" name="psw" placeholder="***************" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and
+                                         lowercase letter, and at least 8 or more characters" required>
+                                        <!-- <label class="user">Password</label>
+                                        <input type="password" name="userpassword" placeholder="***************" required> -->
+                                        <img src="../assets/view.png" class="view" width="20px">
+                                    </div>
+                                    <div>
+                                        <label class="user">Service Line</label>
+                                        <select required>
+                                    <option>
+                                         Usability Engineering
+                                    </option>
+                                </select>
+                                    </div>
+                                    <button class="createaccount">Create Your Account</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
